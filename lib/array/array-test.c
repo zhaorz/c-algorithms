@@ -11,6 +11,7 @@
 void test_array_new() {
   array_t A = array_new();
   assert(array_len(A) == 0);
+  array_free(A, NULL);
   printf("array_new passed\n");
 }
 
@@ -26,6 +27,7 @@ void test_array_push() {
   assert(array_len(A) == 2);
   assert(array_get(A, 0) == &a);
   assert(array_get(A, 1) == &b);
+  array_free(A, NULL);
   printf("array_push passed\n");
 }
 
@@ -66,6 +68,7 @@ void test_array_pop() {
   assert(x2 == &c);
   assert(x3 == &d);
   assert(x4 == &e);
+  array_free(A, NULL);
   printf("array_pop passed\n");
 }
 

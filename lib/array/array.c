@@ -49,6 +49,7 @@ void array_resize(array *A) {
   for (int i = 0; i < A->size; i++)
     B[i] = A->data[i];
 
+  free(A->data);
   A->data = B;
 }
 
@@ -63,5 +64,15 @@ array_elem array_pop(array *A) {
   array_elem x = A->data[A->size];
   array_resize(A);
   return x;
+}
+
+void array_free(array *A, array_elem_free_fn *elem_free) {
+  if (elem_free != NULL) {
+    for (int i = 0; i < A->size; i++) {
+      (*elem_free)(A->data[i]);
+    }
+  }
+  free(A->data);
+  free(A);
 }
 
