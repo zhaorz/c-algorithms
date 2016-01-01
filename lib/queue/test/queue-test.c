@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "queue.h"
+#include "../queue.c"
 
 void test_queue_new() {
   queue_t Q = queue_new();

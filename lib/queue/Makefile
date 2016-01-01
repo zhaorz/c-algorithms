@@ -8,11 +8,11 @@ CFLAGS=-Wall -std=c99 -pedantic -g
 
 default: queue-test
 
-queue-test: queue-test.o queue.o xalloc.o
-	$(CC) $(CFLAGS) -o queue queue-test.o queue.o xalloc.o
+queue-test: queue-test.o xalloc.o
+	$(CC) $(CFLAGS) -o queue-test queue-test.o xalloc.o
 
-queue-test.o: queue-test.c queue.h
-	$(CC) $(CFLAGS) -c queue-test.c
+queue-test.o: test/queue-test.c queue.o
+	$(CC) $(CFLAGS) -c test/queue-test.c
 
 queue.o: queue.c queue.h ../xalloc/xalloc.h
 	$(CC) $(CFLAGS) -c queue.c ../xalloc/xalloc.c
