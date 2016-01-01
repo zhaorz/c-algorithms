@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "array.h"
+#include "../array.c"
 
 void test_array_new() {
   array_t A = array_new();

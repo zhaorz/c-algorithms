@@ -8,11 +8,11 @@ CFLAGS=-Wall -std=c99 -pedantic -g
 
 default: array-test
 
-array-test: array-test.o array.o xalloc.o
-	$(CC) $(CFLAGS) -o array-test array-test.o array.o xalloc.o
+array-test: array-test.o xalloc.o
+	$(CC) $(CFLAGS) -o array-test array-test.o xalloc.o
 
-array-test.o: array-test.c array.h
-	$(CC) $(CFLAGS) -c array-test.c
+array-test.o: test/array-test.c array.o
+	$(CC) $(CFLAGS) -c test/array-test.c
 
 array.o: array.c array.h ../xalloc/xalloc.h
 	$(CC) $(CFLAGS) -c array.c ../xalloc/xalloc.c
